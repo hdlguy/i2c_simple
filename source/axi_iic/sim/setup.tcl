@@ -2,7 +2,7 @@
 close_project -quiet
 file delete -force proj.xpr *.os *.jou *.log proj.srcs proj.cache proj.runs
 #
-create_project -part xc7a100tcsg324-2 -force proj
+create_project -part xc7a35tcsg324-1 -force proj
 set_property target_language Verilog [current_project]
 set_property default_lib work [current_project]
 
@@ -10,10 +10,11 @@ set_property default_lib work [current_project]
 #upgrade_ip -quiet  [get_ips *]
 #generate_target {all} [get_ips *]
 
-# Read in the hdl source.
+read_verilog -sv ../xpm_sync_fifo/xpm_sync_fifo.sv
+read_verilog -sv ../iic_core.sv
+read_verilog -sv ../axi_iic.sv
 read_verilog -sv ../axi_master_v1_0_M00_AXI.sv  
 read_verilog -sv ../axi_iic_tb.sv  
-read_verilog -sv ../axi_iic.sv
 
 add_files -fileset sim_1 -norecurse ./axi_iic_tb_behav.wcfg
 

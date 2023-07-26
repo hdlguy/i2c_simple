@@ -1,5 +1,4 @@
 #include "xparameters.h"
-//#include <stdio.h>
 #include "platform.h"
 #include "xil_printf.h"
 #include "axi_iic.h"

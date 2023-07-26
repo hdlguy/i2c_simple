@@ -20,6 +20,7 @@ generate_target {synthesis implementation} [get_files ./proj.srcs/sources_1/bd/s
 set_property synth_checkpoint_mode None [get_files ./proj.srcs/sources_1/bd/system/system.bd]
 
 read_verilog -sv ../source/axi_iic/xpm_sync_fifo/xpm_sync_fifo.sv
+read_verilog -sv ../source/axi_iic/iic_core.sv
 read_verilog -sv ../source/axi_iic/axi_iic.sv
 read_verilog -sv ../source/top.sv
 

@@ -356,14 +356,12 @@ module axi_iic #(
 	assign iic_reset = (iic_reset_cmd==4'hA);
 	
 	iic_core iic_core_inst (
-	   .clk(S_AXI_ACLK),
-	   .reset(iic_reset),
-	   .control(iic_control),
-	   .status(iic_status),
-	   .tx_fifo_wr(tx_fifo_wr),
-	   .tx_fifo_din(tx_fifo_din),
-	   .rx_fifo_rd(rx_fifo_rd),
-	   .rx_fifo_dout(rx_fifo_dout)
+        .clk(S_AXI_ACLK), .reset(iic_reset),
+        .control(iic_control), .status(iic_status),
+        .tx_fifo_wr(tx_fifo_wr), .tx_fifo_din(tx_fifo_din),
+        .rx_fifo_rd(rx_fifo_rd), .rx_fifo_dout(rx_fifo_dout),
+        .scl_i(scl_i), .scl_o(scl_o), .scl_t(scl_t),
+        .sda_i(sda_i), .sda_o(sda_o), .sda_t(sda_t)	   
 	);
 	
 
