@@ -22,7 +22,7 @@ set_property synth_checkpoint_mode None [get_files ./proj.srcs/sources_1/bd/syst
 
 read_verilog -sv ../source/top.sv
 
-read_xdc         ../source/arty_top.xdc
+read_xdc         ../source/top.xdc
 
 close_project
 
