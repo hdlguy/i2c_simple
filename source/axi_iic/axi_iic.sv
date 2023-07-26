@@ -37,10 +37,29 @@ module axi_iic #(
 );
 
 
-
+    logic[31:0] iic_control, iic_status;
+    logic[3:0] iic_reset_cmd;
+    
     logic [NUM_REGS-1:0][C_S_AXI_DATA_WIDTH-1:0] slv_read, slv_reg, slv_wr_pulse;
     
-    assign gpo = slv_reg[3][3:0];
+    assign slv_read[0] = 32'hdeadbeef; // ID
+    assign slv_read[1] = 32'h00000101; // version
+    
+    assign iic_reset_cmd = slv_wr_pulse[2][3:0];  // writing 0xA to these bits resets the iic core.
+    
+    assign iic_control = slv_reg[3];
+    assign slv_read[3] = slv_reg[3];
+    
+    assign slv_read[4] = iic_status;
+    
+    // register 5 is tx fifo data
+    
+    assign slv_read[6] = {24'h00_00_00, rx_fifo_dout};
+        
+    assign gpo = slv_reg[7][3:0];
+    assign slv_read[7] = slv_reg[7];
+    
+    assign slv_read[NUM_REGS-1:8] = slv_reg[NUM_REGS-1:8];
     
     
 
@@ -322,9 +341,30 @@ module axi_iic #(
 	        end   
 	    end
 	end    
-
-	// Add user logic here
-
-	// User logic ends
+    
+    // fifo control
+	logic tx_fifo_wr;
+	assign tx_fifo_wr = (S_AXI_AWADDR[C_S_AXI_ADDR_WIDTH-1:2]==5) & slv_reg_wren;
+	logic[7:0] tx_fifo_din;
+	assign tx_fifo_din = S_AXI_WDATA[7:0];
+	
+	logic rx_fifo_rd;
+	assign rx_fifo_rd = (S_AXI_ARADDR[C_S_AXI_ADDR_WIDTH-1:2]==6) & slv_reg_rden;
+	logic[7:0] rx_fifo_dout;
+	
+	logic iic_reset;
+	assign iic_reset = (iic_reset_cmd==4'hA);
+	
+	iic_core iic_core_inst (
+	   .clk(S_AXI_ACLK),
+	   .reset(iic_reset),
+	   .control(iic_control),
+	   .status(iic_status),
+	   .tx_fifo_wr(tx_fifo_wr),
+	   .tx_fifo_din(tx_fifo_din),
+	   .rx_fifo_rd(rx_fifo_rd),
+	   .rx_fifo_dout(rx_fifo_dout)
+	);
+	
 
 	endmodule

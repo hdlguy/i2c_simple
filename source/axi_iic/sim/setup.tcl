@@ -12,10 +12,10 @@ set_property default_lib work [current_project]
 
 # Read in the hdl source.
 read_verilog -sv ../axi_master_v1_0_M00_AXI.sv  
-read_verilog -sv ../axi_regfile_tb.sv  
-read_verilog -sv ../axi_regfile_v1_0_S00_AXI.sv
+read_verilog -sv ../axi_iic_tb.sv  
+read_verilog -sv ../axi_iic.sv
 
-add_files -fileset sim_1 -norecurse ./axi_regfile_tb_behav.wcfg
+add_files -fileset sim_1 -norecurse ./axi_iic_tb_behav.wcfg
 
 close_project
 

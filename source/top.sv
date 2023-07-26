@@ -6,10 +6,11 @@ module arty_top (
     input   logic               usb_uart_rxd,
     output  logic               usb_uart_txd,
     // LEDs
-    output  logic               led_blue,
-    output  logic               led_green,
-    output  logic               led_yellow,
-    output  logic               led_red,    
+    output  logic[3:0]          led,
+//    output  logic               led_blue,
+//    output  logic               led_green,
+//    output  logic               led_yellow,
+//    output  logic               led_red,    
     // I2C
     inout   logic               scl,        
     inout   logic               sda        
@@ -85,7 +86,7 @@ module arty_top (
     IOBUF iic_scl_iobuf (.I(iic_scl_o), .IO(scl), .O(iic_scl_i), .T(iic_scl_t)); 
     IOBUF iic_sda_iobuf (.I(iic_sda_o), .IO(sda), .O(iic_sda_i), .T(iic_sda_t));      
     
-    //iic_ila iic_ila_inst (.clk(clkout6), .probe0({iic_scl_i, iic_scl_t, iic_sda_i, iic_sda_t, iic_gpo})); // 8
+    iic_ila iic_ila_inst (.clk(clkout6), .probe0({iic_scl_i, iic_scl_t, iic_sda_i, iic_sda_t, iic_gpo})); // 8
     
 	axi_iic axi_iic_inst (
         // iic interface
@@ -120,10 +121,11 @@ module arty_top (
 		.S_AXI_WVALID  (M00_AXI_wvalid )
 	);
 	
-	assign led_blue    = iic_gpo[3];
-	assign led_green   = iic_gpo[2];
-	assign led_yellow  = iic_gpo[1];
-	assign led_red     = iic_gpo[0];
+	assign led = iic_gpo;
+//	assign led_blue    = iic_gpo[3];
+//	assign led_green   = iic_gpo[2];
+//	assign led_yellow  = iic_gpo[1];
+//	assign led_red     = iic_gpo[0];
 
 endmodule
 

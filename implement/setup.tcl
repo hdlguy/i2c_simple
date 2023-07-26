@@ -11,14 +11,15 @@ set_property default_lib work [current_project]
 load_features ipintegrator
 tclapp::install ultrafast -quiet
 
-#read_ip ../source/uart_ila/uart_ila.xci
-#upgrade_ip -quiet  [get_ips *]
-#generate_target {all} [get_ips *]
+read_ip ../source/iic_ila/iic_ila.xci
+upgrade_ip -quiet  [get_ips *]
+generate_target {all} [get_ips *]
 
 source ../source/system.tcl
 generate_target {synthesis implementation} [get_files ./proj.srcs/sources_1/bd/system/system.bd]
 set_property synth_checkpoint_mode None [get_files ./proj.srcs/sources_1/bd/system/system.bd]
 
+read_verilog -sv ../source/axi_iic/xpm_sync_fifo/xpm_sync_fifo.sv
 read_verilog -sv ../source/axi_iic/axi_iic.sv
 read_verilog -sv ../source/top.sv
 

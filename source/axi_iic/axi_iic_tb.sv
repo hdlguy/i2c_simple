@@ -1,5 +1,6 @@
+`timescale 1ns / 1ps
 // 
-module axi_regfile_tb ();
+module axi_iic_tb ();
 
     logic [39:0]    M00_AXI_araddr;
     logic [2:0]     M00_AXI_arprot;
@@ -22,48 +23,45 @@ module axi_regfile_tb ();
     logic           M00_AXI_wvalid;
     logic           axi_aresetn;
 
-    localparam integer LOG2_NREGS = 5;
+    localparam integer LOG2_NREGS = 4;
     localparam integer NREGS = 2**LOG2_NREGS;
 
 
     localparam clk_period = 10; logic axi_aclk = 0; always #(clk_period/2) axi_aclk = ~axi_aclk;
     
 
-    logic [NREGS-1:0][31:0] slv_reg, slv_read, slv_wr_pulse;
-    assign slv_read = slv_reg;
-
-	axi_regfile_v1_0_S00_AXI #	(
-		.C_S_AXI_DATA_WIDTH (32),
-		.C_S_AXI_ADDR_WIDTH (LOG2_NREGS+2)
-	) axi_regfile_inst (
-        // register interface
-        .slv_read       (slv_read), 
-        .slv_reg        (slv_reg),  
-        .slv_wr_pulse   (slv_wr_pulse),  
+    axi_iic uut (
+        // iic interface
+        .scl_i          (iic_scl_i),
+        .scl_o          (iic_scl_o),
+        .scl_t          (iic_scl_t),
+        .sda_i          (iic_sda_i),
+        .sda_o          (iic_sda_o),
+        .sda_t          (iic_sda_t),
+        .gpo            (iic_gpo),	
         // axi interface
-		.S_AXI_ACLK    (axi_aclk),
-		.S_AXI_ARESETN (axi_aresetn),
-        //
-		.S_AXI_ARADDR  (M00_AXI_araddr ),
-		.S_AXI_ARPROT  (M00_AXI_arprot ),
-		.S_AXI_ARREADY (M00_AXI_arready),
-		.S_AXI_ARVALID (M00_AXI_arvalid),
-		.S_AXI_AWADDR  (M00_AXI_awaddr ),
-		.S_AXI_AWPROT  (M00_AXI_awprot ),
-		.S_AXI_AWREADY (M00_AXI_awready),
-		.S_AXI_AWVALID (M00_AXI_awvalid),
-		.S_AXI_BREADY  (M00_AXI_bready ),
-		.S_AXI_BRESP   (M00_AXI_bresp  ),
-		.S_AXI_BVALID  (M00_AXI_bvalid ),
-		.S_AXI_RDATA   (M00_AXI_rdata  ),
-		.S_AXI_RREADY  (M00_AXI_rready ),
-		.S_AXI_RRESP   (M00_AXI_rresp  ),
-		.S_AXI_RVALID  (M00_AXI_rvalid ),
-		.S_AXI_WDATA   (M00_AXI_wdata  ),
-		.S_AXI_WREADY  (M00_AXI_wready ),
-		.S_AXI_WSTRB   (M00_AXI_wstrb  ),
-		.S_AXI_WVALID  (M00_AXI_wvalid )
-	);
+        .S_AXI_ACLK     (axi_aclk),
+        .S_AXI_ARESETN  (axi_aresetn),        
+        .S_AXI_ARADDR   (M00_AXI_araddr ),
+        .S_AXI_ARPROT   (M00_AXI_arprot ),
+        .S_AXI_ARREADY  (M00_AXI_arready),
+        .S_AXI_ARVALID  (M00_AXI_arvalid),
+        .S_AXI_AWADDR   (M00_AXI_awaddr ),
+        .S_AXI_AWPROT   (M00_AXI_awprot ),
+        .S_AXI_AWREADY  (M00_AXI_awready),
+        .S_AXI_AWVALID  (M00_AXI_awvalid),
+        .S_AXI_BREADY   (M00_AXI_bready ),
+        .S_AXI_BRESP    (M00_AXI_bresp  ),
+        .S_AXI_BVALID   (M00_AXI_bvalid ),
+        .S_AXI_RDATA    (M00_AXI_rdata  ),
+        .S_AXI_RREADY   (M00_AXI_rready ),
+        .S_AXI_RRESP    (M00_AXI_rresp  ),
+        .S_AXI_RVALID   (M00_AXI_rvalid ),
+        .S_AXI_WDATA    (M00_AXI_wdata  ),
+        .S_AXI_WREADY   (M00_AXI_wready ),
+        .S_AXI_WSTRB    (M00_AXI_wstrb  ),
+        .S_AXI_WVALID   (M00_AXI_wvalid )
+    );
 
     logic axi_init, error, axi_done;
     initial begin

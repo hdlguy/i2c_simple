@@ -3,144 +3,282 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="axi_regfile_tb_behav.wdb" id="1">
+      <db_ref path="axi_iic_tb_behav.wdb" id="1">
          <top_modules>
-            <top_module name="axi_regfile_tb" />
+            <top_module name="axi_iic_tb" />
             <top_module name="glbl" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="1,133.501 ns"></ZoomEndTime>
-      <Cursor1Time time="0.000 ns"></Cursor1Time>
+      <ZoomStartTime time="357.394 ns"></ZoomStartTime>
+      <ZoomEndTime time="480.634 ns"></ZoomEndTime>
+      <Cursor1Time time="1,578.276 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="258"></NameColumnWidth>
-      <ValueColumnWidth column_width="124"></ValueColumnWidth>
+      <ValueColumnWidth column_width="119"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="27" />
-   <wvobject type="array" fp_name="/axi_regfile_tb/M00_AXI_araddr">
+   <WVObjectSize size="62" />
+   <wvobject type="logic" fp_name="/axi_iic_tb/axi_aresetn">
+      <obj_property name="ElementShortName">axi_aresetn</obj_property>
+      <obj_property name="ObjectShortName">axi_aresetn</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/axi_iic_tb/axi_aclk">
+      <obj_property name="ElementShortName">axi_aclk</obj_property>
+      <obj_property name="ObjectShortName">axi_aclk</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi_iic_tb/M00_AXI_araddr">
       <obj_property name="ElementShortName">M00_AXI_araddr[39:0]</obj_property>
       <obj_property name="ObjectShortName">M00_AXI_araddr[39:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/axi_regfile_tb/M00_AXI_arprot">
+   <wvobject type="array" fp_name="/axi_iic_tb/M00_AXI_arprot">
       <obj_property name="ElementShortName">M00_AXI_arprot[2:0]</obj_property>
       <obj_property name="ObjectShortName">M00_AXI_arprot[2:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/axi_regfile_tb/M00_AXI_arready">
+   <wvobject type="logic" fp_name="/axi_iic_tb/M00_AXI_arready">
       <obj_property name="ElementShortName">M00_AXI_arready</obj_property>
       <obj_property name="ObjectShortName">M00_AXI_arready</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/axi_regfile_tb/M00_AXI_arvalid">
+   <wvobject type="logic" fp_name="/axi_iic_tb/M00_AXI_arvalid">
       <obj_property name="ElementShortName">M00_AXI_arvalid</obj_property>
       <obj_property name="ObjectShortName">M00_AXI_arvalid</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/axi_regfile_tb/M00_AXI_awaddr">
+   <wvobject type="array" fp_name="/axi_iic_tb/M00_AXI_awaddr">
       <obj_property name="ElementShortName">M00_AXI_awaddr[39:0]</obj_property>
       <obj_property name="ObjectShortName">M00_AXI_awaddr[39:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/axi_regfile_tb/M00_AXI_awprot">
+   <wvobject type="array" fp_name="/axi_iic_tb/M00_AXI_awprot">
       <obj_property name="ElementShortName">M00_AXI_awprot[2:0]</obj_property>
       <obj_property name="ObjectShortName">M00_AXI_awprot[2:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/axi_regfile_tb/M00_AXI_awready">
+   <wvobject type="logic" fp_name="/axi_iic_tb/M00_AXI_awready">
       <obj_property name="ElementShortName">M00_AXI_awready</obj_property>
       <obj_property name="ObjectShortName">M00_AXI_awready</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/axi_regfile_tb/M00_AXI_awvalid">
+   <wvobject type="logic" fp_name="/axi_iic_tb/M00_AXI_awvalid">
       <obj_property name="ElementShortName">M00_AXI_awvalid</obj_property>
       <obj_property name="ObjectShortName">M00_AXI_awvalid</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/axi_regfile_tb/M00_AXI_bready">
+   <wvobject type="logic" fp_name="/axi_iic_tb/M00_AXI_bready">
       <obj_property name="ElementShortName">M00_AXI_bready</obj_property>
       <obj_property name="ObjectShortName">M00_AXI_bready</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/axi_regfile_tb/M00_AXI_bresp">
+   <wvobject type="array" fp_name="/axi_iic_tb/M00_AXI_bresp">
       <obj_property name="ElementShortName">M00_AXI_bresp[1:0]</obj_property>
       <obj_property name="ObjectShortName">M00_AXI_bresp[1:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/axi_regfile_tb/M00_AXI_bvalid">
+   <wvobject type="logic" fp_name="/axi_iic_tb/M00_AXI_bvalid">
       <obj_property name="ElementShortName">M00_AXI_bvalid</obj_property>
       <obj_property name="ObjectShortName">M00_AXI_bvalid</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/axi_regfile_tb/M00_AXI_rdata">
+   <wvobject type="array" fp_name="/axi_iic_tb/M00_AXI_rdata">
       <obj_property name="ElementShortName">M00_AXI_rdata[31:0]</obj_property>
       <obj_property name="ObjectShortName">M00_AXI_rdata[31:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/axi_regfile_tb/M00_AXI_rready">
+   <wvobject type="logic" fp_name="/axi_iic_tb/M00_AXI_rready">
       <obj_property name="ElementShortName">M00_AXI_rready</obj_property>
       <obj_property name="ObjectShortName">M00_AXI_rready</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/axi_regfile_tb/M00_AXI_rresp">
+   <wvobject type="array" fp_name="/axi_iic_tb/M00_AXI_rresp">
       <obj_property name="ElementShortName">M00_AXI_rresp[1:0]</obj_property>
       <obj_property name="ObjectShortName">M00_AXI_rresp[1:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/axi_regfile_tb/M00_AXI_rvalid">
+   <wvobject type="logic" fp_name="/axi_iic_tb/M00_AXI_rvalid">
       <obj_property name="ElementShortName">M00_AXI_rvalid</obj_property>
       <obj_property name="ObjectShortName">M00_AXI_rvalid</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/axi_regfile_tb/M00_AXI_wdata">
+   <wvobject type="array" fp_name="/axi_iic_tb/M00_AXI_wdata">
       <obj_property name="ElementShortName">M00_AXI_wdata[31:0]</obj_property>
       <obj_property name="ObjectShortName">M00_AXI_wdata[31:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/axi_regfile_tb/M00_AXI_wready">
+   <wvobject type="logic" fp_name="/axi_iic_tb/M00_AXI_wready">
       <obj_property name="ElementShortName">M00_AXI_wready</obj_property>
       <obj_property name="ObjectShortName">M00_AXI_wready</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/axi_regfile_tb/M00_AXI_wstrb">
+   <wvobject type="array" fp_name="/axi_iic_tb/M00_AXI_wstrb">
       <obj_property name="ElementShortName">M00_AXI_wstrb[3:0]</obj_property>
       <obj_property name="ObjectShortName">M00_AXI_wstrb[3:0]</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/axi_regfile_tb/M00_AXI_wvalid">
+   <wvobject type="logic" fp_name="/axi_iic_tb/M00_AXI_wvalid">
       <obj_property name="ElementShortName">M00_AXI_wvalid</obj_property>
       <obj_property name="ObjectShortName">M00_AXI_wvalid</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/axi_regfile_tb/axi_aresetn">
-      <obj_property name="ElementShortName">axi_aresetn</obj_property>
-      <obj_property name="ObjectShortName">axi_aresetn</obj_property>
-      <obj_property name="CustomSignalColor">#FFA500</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/axi_regfile_tb/axi_aclk">
-      <obj_property name="ElementShortName">axi_aclk</obj_property>
-      <obj_property name="ObjectShortName">axi_aclk</obj_property>
-      <obj_property name="CustomSignalColor">#FFA500</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/axi_regfile_tb/slv_reg">
-      <obj_property name="ElementShortName">slv_reg[31:0][31:0]</obj_property>
-      <obj_property name="ObjectShortName">slv_reg[31:0][31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FFA500</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/axi_regfile_tb/slv_read">
-      <obj_property name="ElementShortName">slv_read[31:0][31:0]</obj_property>
-      <obj_property name="ObjectShortName">slv_read[31:0][31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FFA500</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/axi_regfile_tb/slv_wr_pulse">
-      <obj_property name="ElementShortName">slv_wr_pulse[31:0][31:0]</obj_property>
-      <obj_property name="ObjectShortName">slv_wr_pulse[31:0][31:0]</obj_property>
-      <obj_property name="isExpanded"></obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/axi_regfile_tb/axi_init">
-      <obj_property name="ElementShortName">axi_init</obj_property>
-      <obj_property name="ObjectShortName">axi_init</obj_property>
-      <obj_property name="CustomSignalColor">#FFA500</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/axi_regfile_tb/error">
+   <wvobject type="logic" fp_name="/axi_iic_tb/error">
       <obj_property name="ElementShortName">error</obj_property>
       <obj_property name="ObjectShortName">error</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/axi_iic_tb/axi_done">
+      <obj_property name="ElementShortName">axi_done</obj_property>
+      <obj_property name="ObjectShortName">axi_done</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/axi_iic_tb/iic_scl_i">
+      <obj_property name="ElementShortName">iic_scl_i</obj_property>
+      <obj_property name="ObjectShortName">iic_scl_i</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/axi_iic_tb/iic_scl_o">
+      <obj_property name="ElementShortName">iic_scl_o</obj_property>
+      <obj_property name="ObjectShortName">iic_scl_o</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/axi_iic_tb/iic_scl_t">
+      <obj_property name="ElementShortName">iic_scl_t</obj_property>
+      <obj_property name="ObjectShortName">iic_scl_t</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/axi_iic_tb/iic_sda_i">
+      <obj_property name="ElementShortName">iic_sda_i</obj_property>
+      <obj_property name="ObjectShortName">iic_sda_i</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/axi_iic_tb/iic_sda_o">
+      <obj_property name="ElementShortName">iic_sda_o</obj_property>
+      <obj_property name="ObjectShortName">iic_sda_o</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/axi_iic_tb/iic_sda_t">
+      <obj_property name="ElementShortName">iic_sda_t</obj_property>
+      <obj_property name="ObjectShortName">iic_sda_t</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/axi_iic_tb/iic_gpo">
+      <obj_property name="ElementShortName">iic_gpo</obj_property>
+      <obj_property name="ObjectShortName">iic_gpo</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider66" type="divider">
+      <obj_property name="label">uut</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/axi_iic_tb/uut/S_AXI_ACLK">
+      <obj_property name="ElementShortName">S_AXI_ACLK</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_ACLK</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi_iic_tb/uut/slv_read">
+      <obj_property name="ElementShortName">slv_read[15:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">slv_read[15:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi_iic_tb/uut/slv_reg">
+      <obj_property name="ElementShortName">slv_reg[15:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">slv_reg[15:0][31:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi_iic_tb/uut/slv_wr_pulse">
+      <obj_property name="ElementShortName">slv_wr_pulse[15:0][31:0]</obj_property>
+      <obj_property name="ObjectShortName">slv_wr_pulse[15:0][31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi_iic_tb/uut/S_AXI_AWADDR">
+      <obj_property name="ElementShortName">S_AXI_AWADDR[5:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_AWADDR[5:0]</obj_property>
       <obj_property name="CustomSignalColor">#FFA500</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/axi_regfile_tb/axi_done">
-      <obj_property name="ElementShortName">axi_done</obj_property>
-      <obj_property name="ObjectShortName">axi_done</obj_property>
+   <wvobject type="array" fp_name="/axi_iic_tb/uut/S_AXI_WDATA">
+      <obj_property name="ElementShortName">S_AXI_WDATA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_WDATA[31:0]</obj_property>
       <obj_property name="CustomSignalColor">#FFA500</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/axi_iic_tb/uut/slv_reg_wren">
+      <obj_property name="ElementShortName">slv_reg_wren</obj_property>
+      <obj_property name="ObjectShortName">slv_reg_wren</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/axi_iic_tb/uut/slv_reg_rden">
+      <obj_property name="ElementShortName">slv_reg_rden</obj_property>
+      <obj_property name="ObjectShortName">slv_reg_rden</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi_iic_tb/uut/S_AXI_ARADDR">
+      <obj_property name="ElementShortName">S_AXI_ARADDR[5:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_ARADDR[5:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi_iic_tb/uut/S_AXI_RDATA">
+      <obj_property name="ElementShortName">S_AXI_RDATA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">S_AXI_RDATA[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/axi_iic_tb/uut/tx_fifo_wr">
+      <obj_property name="ElementShortName">tx_fifo_wr</obj_property>
+      <obj_property name="ObjectShortName">tx_fifo_wr</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/axi_iic_tb/uut/rx_fifo_rd">
+      <obj_property name="ElementShortName">rx_fifo_rd</obj_property>
+      <obj_property name="ObjectShortName">rx_fifo_rd</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi_iic_tb/uut/axi_awaddr">
+      <obj_property name="ElementShortName">axi_awaddr[5:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_awaddr[5:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/axi_iic_tb/uut/axi_awready">
+      <obj_property name="ElementShortName">axi_awready</obj_property>
+      <obj_property name="ObjectShortName">axi_awready</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/axi_iic_tb/uut/axi_wready">
+      <obj_property name="ElementShortName">axi_wready</obj_property>
+      <obj_property name="ObjectShortName">axi_wready</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi_iic_tb/uut/axi_bresp">
+      <obj_property name="ElementShortName">axi_bresp[1:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_bresp[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/axi_iic_tb/uut/axi_bvalid">
+      <obj_property name="ElementShortName">axi_bvalid</obj_property>
+      <obj_property name="ObjectShortName">axi_bvalid</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi_iic_tb/uut/axi_araddr">
+      <obj_property name="ElementShortName">axi_araddr[5:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_araddr[5:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/axi_iic_tb/uut/axi_arready">
+      <obj_property name="ElementShortName">axi_arready</obj_property>
+      <obj_property name="ObjectShortName">axi_arready</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi_iic_tb/uut/axi_rdata">
+      <obj_property name="ElementShortName">axi_rdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_rdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi_iic_tb/uut/axi_rresp">
+      <obj_property name="ElementShortName">axi_rresp[1:0]</obj_property>
+      <obj_property name="ObjectShortName">axi_rresp[1:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/axi_iic_tb/uut/axi_rvalid">
+      <obj_property name="ElementShortName">axi_rvalid</obj_property>
+      <obj_property name="ObjectShortName">axi_rvalid</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi_iic_tb/uut/reg_data_out">
+      <obj_property name="ElementShortName">reg_data_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">reg_data_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi_iic_tb/uut/byte_index">
+      <obj_property name="ElementShortName">byte_index[31:0]</obj_property>
+      <obj_property name="ObjectShortName">byte_index[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/axi_iic_tb/uut/aw_en">
+      <obj_property name="ElementShortName">aw_en</obj_property>
+      <obj_property name="ObjectShortName">aw_en</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/axi_iic_tb/uut/slv_reg_wren_reg">
+      <obj_property name="ElementShortName">slv_reg_wren_reg</obj_property>
+      <obj_property name="ObjectShortName">slv_reg_wren_reg</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi_iic_tb/uut/C_S_AXI_DATA_WIDTH">
+      <obj_property name="ElementShortName">C_S_AXI_DATA_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">C_S_AXI_DATA_WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi_iic_tb/uut/C_S_AXI_ADDR_WIDTH">
+      <obj_property name="ElementShortName">C_S_AXI_ADDR_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">C_S_AXI_ADDR_WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi_iic_tb/uut/NUM_REGS">
+      <obj_property name="ElementShortName">NUM_REGS[31:0]</obj_property>
+      <obj_property name="ObjectShortName">NUM_REGS[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi_iic_tb/uut/ADDR_LSB">
+      <obj_property name="ElementShortName">ADDR_LSB[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ADDR_LSB[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/axi_iic_tb/uut/OPT_MEM_ADDR_BITS">
+      <obj_property name="ElementShortName">OPT_MEM_ADDR_BITS[31:0]</obj_property>
+      <obj_property name="ObjectShortName">OPT_MEM_ADDR_BITS[31:0]</obj_property>
    </wvobject>
 </wave_config>
