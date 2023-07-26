@@ -53,13 +53,8 @@ module arty_top (
     // this is the IP Integrator block diagram.
     system system_i (                
         .reset(1'b1), // active low reset
-        .clkin(clkin100),
-        .clkout25(clkout25),
-        .clkout150(clkout150),
-        .clkout200(clkout200),
-        .clkout300(clkout300),
+        .clkin(clk100),
         .clkout6(clkout6),
-        .locked(locked),
         //
         .M00_AXI_araddr     (M00_AXI_araddr),
         .M00_AXI_arprot     (M00_AXI_arprot),
@@ -87,16 +82,13 @@ module arty_top (
         .usb_uart_txd       (usb_uart_txd)               
     );
         
-    
     IOBUF iic_scl_iobuf (.I(iic_scl_o), .IO(scl), .O(iic_scl_i), .T(iic_scl_t)); 
     IOBUF iic_sda_iobuf (.I(iic_sda_o), .IO(sda), .O(iic_sda_i), .T(iic_sda_t));      
     
     //iic_ila iic_ila_inst (.clk(clkout6), .probe0({iic_scl_i, iic_scl_t, iic_sda_i, iic_sda_t, iic_gpo})); // 8
     
-	i2c_simple #	(
-		.C_S_AXI_DATA_WIDTH(32),
-		.C_S_AXI_ADDR_WIDTH(Nreg_addr)
-	) i2c_simple_inst (
+	axi_iic axi_iic_inst (
+        // iic interface
         .scl_i          (iic_scl_i),
         .scl_o          (iic_scl_o),
         .scl_t          (iic_scl_t),
@@ -107,7 +99,6 @@ module arty_top (
         // axi interface
 		.S_AXI_ACLK    (axi_aclk),
 		.S_AXI_ARESETN (axi_aresetn),
-        //
 		.S_AXI_ARADDR  (M00_AXI_araddr ),
 		.S_AXI_ARPROT  (M00_AXI_arprot ),
 		.S_AXI_ARREADY (M00_AXI_arready),
@@ -128,10 +119,19 @@ module arty_top (
 		.S_AXI_WSTRB   (M00_AXI_wstrb  ),
 		.S_AXI_WVALID  (M00_AXI_wvalid )
 	);
+	
+	assign led_blue    = iic_gpo[3];
+	assign led_green   = iic_gpo[2];
+	assign led_yellow  = iic_gpo[1];
+	assign led_red     = iic_gpo[0];
 
 endmodule
 
 /*
+    output  logic               led_blue,
+    output  logic               led_green,
+    output  logic               led_yellow,
+    output  logic               led_red,    
 */
 
 

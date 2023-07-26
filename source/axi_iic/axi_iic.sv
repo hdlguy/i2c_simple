@@ -1,37 +1,48 @@
 
-`timescale 1 ns / 1 ps
+module axi_iic #(    
+    parameter integer C_S_AXI_DATA_WIDTH	= 32,
+    parameter integer C_S_AXI_ADDR_WIDTH	= 6, // gives 16 32-bit registers
+    parameter integer NUM_REGS = (2**(C_S_AXI_ADDR_WIDTH-2))
+)(
+    // iic interface
+    input   logic       scl_i,
+    output  logic       scl_o,
+    output  logic       scl_t,
+    input   logic       sda_i,
+    output  logic       sda_o,
+    output  logic       sda_t,
+    output  logic[3:0]  gpo,
+    // axi
+    input wire  S_AXI_ACLK,
+    input wire  S_AXI_ARESETN,
+    input wire [C_S_AXI_ADDR_WIDTH-1 : 0] S_AXI_AWADDR,
+    input wire [2 : 0] S_AXI_AWPROT,
+    input wire  S_AXI_AWVALID,
+    output wire  S_AXI_AWREADY,
+    input wire [C_S_AXI_DATA_WIDTH-1 : 0] S_AXI_WDATA,
+    input wire [(C_S_AXI_DATA_WIDTH/8)-1 : 0] S_AXI_WSTRB,
+    input wire  S_AXI_WVALID,
+    output wire  S_AXI_WREADY,
+    output wire [1 : 0] S_AXI_BRESP,
+    output wire  S_AXI_BVALID,
+    input wire  S_AXI_BREADY,
+    input wire [C_S_AXI_ADDR_WIDTH-1 : 0] S_AXI_ARADDR,
+    input wire [2 : 0] S_AXI_ARPROT,
+    input wire  S_AXI_ARVALID,
+    output wire  S_AXI_ARREADY,
+    output wire [C_S_AXI_DATA_WIDTH-1 : 0] S_AXI_RDATA,
+    output wire [1 : 0] S_AXI_RRESP,
+    output wire  S_AXI_RVALID,
+    input wire  S_AXI_RREADY
+);
 
-	module axi_regfile_v1_0_S00_AXI #	(
-		parameter integer C_S_AXI_DATA_WIDTH	= 32,
-		parameter integer C_S_AXI_ADDR_WIDTH	= 6,
-        parameter integer NUM_REGS = (2**(C_S_AXI_ADDR_WIDTH-2))
-	)	(
-        input  logic [NUM_REGS-1:0][C_S_AXI_DATA_WIDTH-1:0] slv_read,      // The readback ports.
-        output logic [NUM_REGS-1:0][C_S_AXI_DATA_WIDTH-1:0] slv_reg,       // The register outputs.
-        output logic [NUM_REGS-1:0][C_S_AXI_DATA_WIDTH-1:0] slv_wr_pulse,  // The bit pulses when a '1' is written to the corresponding bit.
-        //
-		input wire  S_AXI_ACLK,
-		input wire  S_AXI_ARESETN,
-		input wire [C_S_AXI_ADDR_WIDTH-1 : 0] S_AXI_AWADDR,
-		input wire [2 : 0] S_AXI_AWPROT,
-		input wire  S_AXI_AWVALID,
-		output wire  S_AXI_AWREADY,
-		input wire [C_S_AXI_DATA_WIDTH-1 : 0] S_AXI_WDATA,
-		input wire [(C_S_AXI_DATA_WIDTH/8)-1 : 0] S_AXI_WSTRB,
-		input wire  S_AXI_WVALID,
-		output wire  S_AXI_WREADY,
-		output wire [1 : 0] S_AXI_BRESP,
-		output wire  S_AXI_BVALID,
-		input wire  S_AXI_BREADY,
-		input wire [C_S_AXI_ADDR_WIDTH-1 : 0] S_AXI_ARADDR,
-		input wire [2 : 0] S_AXI_ARPROT,
-		input wire  S_AXI_ARVALID,
-		output wire  S_AXI_ARREADY,
-		output wire [C_S_AXI_DATA_WIDTH-1 : 0] S_AXI_RDATA,
-		output wire [1 : 0] S_AXI_RRESP,
-		output wire  S_AXI_RVALID,
-		input wire  S_AXI_RREADY
-	);
+
+
+    logic [NUM_REGS-1:0][C_S_AXI_DATA_WIDTH-1:0] slv_read, slv_reg, slv_wr_pulse;
+    
+    assign gpo = slv_reg[3][3:0];
+    
+    
 
 	// AXI4LITE signals
 	reg [C_S_AXI_ADDR_WIDTH-1 : 0] 	axi_awaddr;
