@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="iic_core_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="iic_core_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
+      <ZoomEndTime time="228.200001 us"></ZoomEndTime>
+      <Cursor1Time time="0.000000 us"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="258"></NameColumnWidth>
+      <ValueColumnWidth column_width="109"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="32" />
+   <wvobject type="logic" fp_name="/iic_core_tb/reset">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/iic_core_tb/tx_fifo_wr">
+      <obj_property name="ElementShortName">tx_fifo_wr</obj_property>
+      <obj_property name="ObjectShortName">tx_fifo_wr</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/iic_core_tb/tx_fifo_din">
+      <obj_property name="ElementShortName">tx_fifo_din[7:0]</obj_property>
+      <obj_property name="ObjectShortName">tx_fifo_din[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/iic_core_tb/tx_fifo_full">
+      <obj_property name="ElementShortName">tx_fifo_full</obj_property>
+      <obj_property name="ObjectShortName">tx_fifo_full</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/iic_core_tb/tx_fifo_empty">
+      <obj_property name="ElementShortName">tx_fifo_empty</obj_property>
+      <obj_property name="ObjectShortName">tx_fifo_empty</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/iic_core_tb/rx_fifo_rd">
+      <obj_property name="ElementShortName">rx_fifo_rd</obj_property>
+      <obj_property name="ObjectShortName">rx_fifo_rd</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/iic_core_tb/rx_fifo_dout">
+      <obj_property name="ElementShortName">rx_fifo_dout</obj_property>
+      <obj_property name="ObjectShortName">rx_fifo_dout</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/iic_core_tb/rx_fifo_full">
+      <obj_property name="ElementShortName">rx_fifo_full</obj_property>
+      <obj_property name="ObjectShortName">rx_fifo_full</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/iic_core_tb/rx_fifo_empty">
+      <obj_property name="ElementShortName">rx_fifo_empty</obj_property>
+      <obj_property name="ObjectShortName">rx_fifo_empty</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/iic_core_tb/scl_i">
+      <obj_property name="ElementShortName">scl_i</obj_property>
+      <obj_property name="ObjectShortName">scl_i</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/iic_core_tb/scl_o">
+      <obj_property name="ElementShortName">scl_o</obj_property>
+      <obj_property name="ObjectShortName">scl_o</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/iic_core_tb/scl_t">
+      <obj_property name="ElementShortName">scl_t</obj_property>
+      <obj_property name="ObjectShortName">scl_t</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/iic_core_tb/sda_i">
+      <obj_property name="ElementShortName">sda_i</obj_property>
+      <obj_property name="ObjectShortName">sda_i</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/iic_core_tb/sda_o">
+      <obj_property name="ElementShortName">sda_o</obj_property>
+      <obj_property name="ObjectShortName">sda_o</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/iic_core_tb/sda_t">
+      <obj_property name="ElementShortName">sda_t</obj_property>
+      <obj_property name="ObjectShortName">sda_t</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/iic_core_tb/clk">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/iic_core_tb/tx_buf">
+      <obj_property name="ElementShortName">tx_buf[9:0][7:0]</obj_property>
+      <obj_property name="ObjectShortName">tx_buf[9:0][7:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/iic_core_tb/sda">
+      <obj_property name="ElementShortName">sda</obj_property>
+      <obj_property name="ObjectShortName">sda</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/iic_core_tb/scl">
+      <obj_property name="ElementShortName">scl</obj_property>
+      <obj_property name="ObjectShortName">scl</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider24" type="divider">
+      <obj_property name="label">uut</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/iic_core_tb/uut/tx_fifo_wr">
+      <obj_property name="ElementShortName">tx_fifo_wr</obj_property>
+      <obj_property name="ObjectShortName">tx_fifo_wr</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/iic_core_tb/uut/tx_fifo_din">
+      <obj_property name="ElementShortName">tx_fifo_din[7:0]</obj_property>
+      <obj_property name="ObjectShortName">tx_fifo_din[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/iic_core_tb/uut/tx_fifo_full">
+      <obj_property name="ElementShortName">tx_fifo_full</obj_property>
+      <obj_property name="ObjectShortName">tx_fifo_full</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/iic_core_tb/uut/tx_fifo_empty">
+      <obj_property name="ElementShortName">tx_fifo_empty</obj_property>
+      <obj_property name="ObjectShortName">tx_fifo_empty</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/iic_core_tb/uut/tx_fifo_rd">
+      <obj_property name="ElementShortName">tx_fifo_rd</obj_property>
+      <obj_property name="ObjectShortName">tx_fifo_rd</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/iic_core_tb/uut/state">
+      <obj_property name="ElementShortName">state[3:0]</obj_property>
+      <obj_property name="ObjectShortName">state[3:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFA500</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/iic_core_tb/uut/bitcount_clr">
+      <obj_property name="ElementShortName">bitcount_clr</obj_property>
+      <obj_property name="ObjectShortName">bitcount_clr</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/iic_core_tb/uut/bitcount_inc">
+      <obj_property name="ElementShortName">bitcount_inc</obj_property>
+      <obj_property name="ObjectShortName">bitcount_inc</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/iic_core_tb/uut/delcount_clr">
+      <obj_property name="ElementShortName">delcount_clr</obj_property>
+      <obj_property name="ObjectShortName">delcount_clr</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/iic_core_tb/uut/delcount_inc">
+      <obj_property name="ElementShortName">delcount_inc</obj_property>
+      <obj_property name="ObjectShortName">delcount_inc</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/iic_core_tb/uut/delcount">
+      <obj_property name="ElementShortName">delcount[15:0]</obj_property>
+      <obj_property name="ObjectShortName">delcount[15:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/iic_core_tb/uut/bitcount">
+      <obj_property name="ElementShortName">bitcount[3:0]</obj_property>
+      <obj_property name="ObjectShortName">bitcount[3:0]</obj_property>
+   </wvobject>
+</wave_config>

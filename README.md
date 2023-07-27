@@ -2,5 +2,5 @@
 An attempt to write a very simple IIC interface for use in fpga designs.
 
 ## Status
-Just getting started. The may not go anywhere.
+Just getting started. This may not go anywhere.
 

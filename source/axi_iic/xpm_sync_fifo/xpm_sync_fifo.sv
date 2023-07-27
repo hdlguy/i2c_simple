@@ -26,7 +26,7 @@ module xpm_sync_fifo #(
         .PROG_FULL_THRESH       (10),
         .RD_DATA_COUNT_WIDTH    (1),
         .READ_DATA_WIDTH        (W),
-        .READ_MODE              ("fwft"),
+        .READ_MODE              ("fwft"), // first word fall through
         .SIM_ASSERT_CHK         (0),
         .USE_ADV_FEATURES       ("0707"),
         .WAKEUP_TIME            (0),
