@@ -11,6 +11,7 @@ module iic_core_tb();
     logic           rx_fifo_dout;
     logic           rx_fifo_full;
     logic           rx_fifo_empty;
+    logic           idle;
     logic           scl_i;
     logic           scl_o;
     logic           scl_t;
@@ -21,9 +22,9 @@ module iic_core_tb();
 
     iic_core uut (.*);
 
-    logic[9:0][7:0] tx_buf = {8'h0f, 8'h0e, 8'h0d, 8'h0c, 8'h0b, 8'h0a, 8'h09, 8'h08};
+    logic[9:0][7:0] tx_buf = {8'h0f, 8'h0e, 8'h0d, 8'h0c, 8'h0b, 8'h0a, 8'h09, 8'ha8};
 
-    localparam int Nsend = 4;
+    localparam int Nsend = 8;
 
     initial begin
         reset = 1;
@@ -54,35 +55,5 @@ endmodule
 
 
 /*
-OBUFT #(
-.DRIVE(12), // Specify the output drive strength
-.IOSTANDARD("DEFAULT"), // Specify the output I/O standard
-.SLEW("SLOW") // Specify the output slew rate
-) OBUFT_inst (
-.O(O), // Buffer output (connect directly to top-level port)
-.I(I), // Buffer input
-.T(T) // 3-state enable input
-);
-module iic_core (
-    input   logic           clk,
-    input   logic           reset,
-    input   logic[31:0]     control,
-    output  logic[31:0]     status,
-    //
-    input   logic           tx_fifo_wr,
-    input   logic[7:0]      tx_fifo_din,
-    output  logic           tx_fifo_full,
-    output  logic           tx_fifo_empty,
-    input   logic           rx_fifo_rd,
-    output  logic           rx_fifo_dout,
-    output  logic           rx_fifo_full,
-    output  logic           rx_fifo_empty,
-    //
-    input   logic           scl_i,
-    output  logic           scl_o,
-    output  logic           scl_t,
-    input   logic           sda_i,
-    output  logic           sda_o,
-    output  logic           sda_t    
-);
+
 */

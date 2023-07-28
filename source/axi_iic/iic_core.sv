@@ -11,6 +11,7 @@ module iic_core (
     output  logic           rx_fifo_dout,
     output  logic           rx_fifo_full,
     output  logic           rx_fifo_empty,
+    output  logic           idle,
     //
     input   logic           scl_i,
     output  logic           scl_o,
@@ -26,6 +27,7 @@ module iic_core (
     localparam real Fclk = 100.0e6;
     localparam real Fiic = 1.0e6; //100.0e3;
     localparam int Ndiv = Fclk/Fiic;
+    localparam logic[3:0] Nhold = 10-1; // clocks between fall of scl and change of sda
     
     // tx fifo
     logic[7:0] tx_fifo_dout;
@@ -45,6 +47,7 @@ module iic_core (
     logic[3:0] bitcount;
     logic bitcount_clr, bitcount_inc;
     logic delcount_clr, delcount_inc;
+    logic sda_t_pre;
     always_comb begin
     
         // defaults
@@ -56,7 +59,8 @@ module iic_core (
         delcount_clr = 0;
         delcount_inc = 0;
         scl_t = 1;
-        sda_t = 1;
+        sda_t_pre = 1;
+        idle = 0;
         
         // state logic
         case (state)
@@ -65,13 +69,17 @@ module iic_core (
                 next_state = 1;
             end
             
+            // wait for fifo
             1: begin
                 delcount_clr = 1;
                 if (~tx_fifo_empty) begin
                     next_state = 2;
+                end else begin
+                    idle = 1;
                 end
             end
             
+            // simple delay
             2: begin
                 delcount_inc = 1;
                 bitcount_clr = 1;
@@ -79,47 +87,95 @@ module iic_core (
                     delcount_clr = 1;
                     next_state = 3;
                 end
-            end
+            end            
             
+            // start symbol
             3: begin
-                sda_t = 0;
+                sda_t_pre = 0;
                 delcount_inc = 1;
                 bitcount_clr = 1;
                 if (delcount==(Ndiv-1)) begin
                     delcount_clr = 1;
-                    next_state = 4;
+                    next_state = 5;
                 end
-            end
+            end            
             
-            4: begin
-                sda_t = tx_fifo_dout[7-bitcount];
+                        
+            // loop over the 8 bits.                        
+            5: begin
+                sda_t_pre = tx_fifo_dout[7-bitcount];
                 scl_t = 0;
                 delcount_inc = 1;
                 if (delcount==(Ndiv-1)) begin
                     delcount_clr = 1;
-                    next_state = 5;
+                    next_state = 6;
                 end
             end
             
-            5: begin
-                sda_t = tx_fifo_dout[7-bitcount];
+            
+            6: begin
+                sda_t_pre = tx_fifo_dout[7-bitcount];
                 delcount_inc = 1;
                 if (delcount==(Ndiv-1)) begin
                     delcount_clr = 1;
                     bitcount_inc = 1;
                     if (bitcount==7) begin
-                        next_state = 6;
+                        next_state = 8;
                     end else begin
-                        next_state = 4;
+                        next_state = 5;
                     end
+                end
+            end            
+            
+            // ack window
+            8: begin
+                scl_t = 0;
+                delcount_inc = 1;
+                if (delcount==(Ndiv-1)) begin
+                    delcount_clr = 1;
+                    next_state = 9;
                 end
             end
             
-            6:begin
-                tx_fifo_rd = 1;
+            9: begin
+                delcount_inc = 1;
+                bitcount_clr = 1;
+                if (delcount==(Ndiv-1)) begin
+                    tx_fifo_rd = 1;
+                    delcount_clr = 1;
+                    next_state = 10;
+                end
+            end            
+                     
+                                             
+            10:begin
                 delcount_clr = 1;
-                next_state = 0;
+                if (tx_fifo_empty) begin
+                    next_state = 11;
+                end else begin
+                    next_state = 5;
+                end
             end
+            
+            // stop symbol
+            11: begin
+                scl_t = 0;
+                sda_t_pre = 0;
+                delcount_inc = 1;
+                if (delcount==(Ndiv-1)) begin
+                    delcount_clr = 1;
+                    next_state = 12;
+                end
+            end
+
+            12: begin
+                delcount_inc = 1;
+                sda_t_pre = 0;
+                if (delcount==(Ndiv-1)) begin
+                    delcount_clr = 1;
+                    next_state = 0;
+                end
+            end            
             
             default: begin
                 next_state = 0;
@@ -150,10 +206,12 @@ module iic_core (
             end
         end
     end
+    
+    // delay sda_t to give some hold time relative to scl_t
+    SRL16E #(.INIT(16'hffff)) srl_inst (.D(sda_t_pre), .Q(sda_t), .A3(Nhold[3]), .A2(Nhold[2]), .A1(Nhold[1]), .A0(Nhold[0]), .CE(), .CLK(clk));
         
 
 endmodule
 
 /*
-
 */
